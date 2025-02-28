@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الالتهابات الفطرية الجلدية (السعفة)</title>
+  <!-- استدعاء خط Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- استدعاء مكتبة Font Awesome للأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+        integrity="sha512-Fo3rlrZj/kTc6rrh2il7xKz7KiWSYYayXWQ+HnJd46e+G+5rV+2wRvjPdwJ8sc56vAV2X+yv3z1IULfxdLZ6yQ==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --primary-color: #2A5C82;
+      --secondary-color: #5DA9E9;
+      --accent-color: #FF6B6B;
+      --text-color: #333;
+      --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      color: var(--text-color);
+      background: var(--bg-gradient);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .header {
+      text-align: center;
+      padding: 3rem 0;
+      background: var(--primary-color);
+      border-radius: 15px;
+      color: white;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    
+    .header p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+    
+    /* إضافة أيقونة للترويسة */
+    .header .header-icon {
+      font-size: 3rem;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      opacity: 0.2;
+    }
+    
+    .section-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    h2 {
+      color: var(--primary-color);
+      border-right: 4px solid var(--accent-color);
+      padding-right: 1rem;
+      margin: 2rem 0;
+      position: relative;
+    }
+    
+    h2::before {
+      content: "\f0f4"; /* أيقونة كتاب (fa-book) */
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      left: -2.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent-color);
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    ul {
+      list-style-type: disc;
+      margin: 1rem 0 1rem 2rem;
+    }
+    
+    /* تنسيق الجداول */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    
+    th, td {
+      padding: 0.5rem;
+      text-align: right;
+    }
+    
+    th {
+      background: var(--secondary-color);
+      color: white;
+    }
+    
+    /* أكوردين للتفاصيل التفاعلية */
+    .accordion-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--secondary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-align: right;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+    }
+    
+    .accordion-btn:hover {
+      background: #4a90d9;
+    }
+    
+    .accordion-btn .icon {
+      margin-left: 0.5rem;
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding: 0 1rem;
+    }
+    
+    .accordion-content.show {
+      max-height: 1000px;
+      margin-top: 0.5rem;
+    }
+    
+    .arrow {
+      transition: transform 0.3s ease;
+    }
+    
+    /* معرض الصور داخل الأقسام */
+    .img-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .img-gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .img-gallery img:hover {
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .header {
+        padding: 2rem 1rem;
+      }
+      
+      .section-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- الترويسة -->
+    <header class="header">
+      <h1>الالتهابات الفطرية الجلدية (السعفة)</h1>
+      <p>التشخيص، العلاج، والوقاية</p>
+      <i class="fas fa-virus header-icon"></i>
+    </header>
+    
+    <!-- ما هي الفطريات الجلدية؟ -->
+    <section class="section-card">
+      <h2>ما هي الفطريات الجلدية؟</h2>
+      <p>
+        الفطريات الجلدية (Dermatophytes) هي كائنات دقيقة تتغذى على الكيراتين الموجود في الجلد، الشعر، والأظافر. تُسبب عدوى تُعرف باسم "السعفة"، وتظهر بأشكال مختلفة حسب المنطقة المصابة.
+      </p>
+      <!-- إضافة صورة توضيحية -->
+      <div class="img-gallery">
+        <img src="https://via.placeholder.com/300x200?text=صورة+جلدية+1" alt="صورة توضيحية للفطريات الجلدية">
+        <img src="https://via.placeholder.com/300x200?text=صورة+جلدية+2" alt="صورة توضيحية للفطريات الجلدية">
+      </div>
+    </section>
+    
+    <!-- كيفية انتقال العدوى -->
+    <section class="section-card">
+      <h2>كيف تنتقل العدوى؟</h2>
+      <p><strong><i class="fas fa-handshake"></i> الاتصال المباشر:</strong></p>
+      <ul>
+        <li>من شخص مصاب أو حيوانات أليفة (مثل القطط والكلاب).</li>
+        <li>لمس أسطح ملوثة (أرضيات الصالات الرياضية، أحواض السباحة).</li>
+      </ul>
+      <p><strong><i class="fas fa-exclamation-triangle"></i> عوامل تزيد خطر الإصابة:</strong></p>
+      <ul>
+        <li>الرطوبة والتعرق الزائد.</li>
+        <li>ارتداء ملابس ضيقة أو أحذية غير مُهَوَّاة.</li>
+        <li>ضعف المناعة أو وجود جروح جلدية.</li>
+      </ul>
+    </section>
+    
+    <!-- أعراض العدوى حسب النوع -->
+    <section class="section-card">
+      <h2>الأعراض حسب نوع العدوى</h2>
+      
+      <!-- سعفة الرأس -->
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span><i class="fas fa-user-md"></i> سعفة الرأس</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>الفئة الأكثر إصابة:</strong> الأطفال بين 3-14 سنة.</p>
+        <p><strong>الأعراض:</strong></p>
+        <ul>
+          <li>بقع دائرية خالية من الشعر مع قشور رمادية أو بيضاء على الفروة.</li>
+          <li>نقاط سوداء بسبب تكسر الشعر عند مستوى الجلد.</li>
+          <li>حكة شديدة قد تسبب خدوشًا وتقرحات.</li>
+          <li>التهاب بكتيري ثانوي (تورم، ألم، أو صديد) في الحالات المتقدمة.</li>
+          <li>كيريون: تورم مؤلم مع بثور مليئة بالصديد نتيجة رد فعل مناعي شديد.</li>
+        </ul>
+        <div class="img-gallery">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الرأس+1" alt="سعفة الرأس">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الرأس+2" alt="سعفة الرأس">
+        </div>
+      </div>
+      
+      <!-- سعفة الجسد -->
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span><i class="fas fa-users"></i> سعفة الجسد</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>طفح حلقي:</strong> دائري أو بيضاوي مع:</p>
+        <ul>
+          <li>حواف مرتفعة وحمراء قد تحتوي على بثور صغيرة أو قشور.</li>
+          <li>منتصف نَضِح أو شفاف يبدو كأنه "يُشفى" من المركز.</li>
+          <li>حكة تتراوح من خفيفة إلى شديدة.</li>
+          <li>قد تظهر حلقات متعددة أو تندمج معًا.</li>
+        </ul>
+        <div class="img-gallery">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الجسد+1" alt="سعفة الجسد">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الجسد+2" alt="سعفة الجسد">
+        </div>
+      </div>
+      
+      <!-- سعفة القدم (قدم الرياضي) -->
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span><i class="fas fa-shoe-prints"></i> سعفة القدم (قدم الرياضي)</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>الأشكال الرئيسية:</strong></p>
+        <ul>
+          <li>النوع بين الأصابع: التهاب وتقشير بين الإصبع الرابع والخامس مع تشققات مؤلمة ورائحة كريهة.</li>
+          <li>النوع الفقاعي: بثور مائية على جوانب القدم أو باطنها مع حكة شديدة وقد تنفجر لتسبب تقرحات.</li>
+          <li>النوع القشري: جلد سميك وجاف في الكعب والباطن مع تقشر يشبه "النعل" وتشققات.</li>
+        </ul>
+        <div class="img-gallery">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+القدم+1" alt="سعفة القدم">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+القدم+2" alt="سعفة القدم">
+        </div>
+      </div>
+      
+      <!-- سعفة الأرفاغ ("حكة اللعب") -->
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span><i class="fas fa-child"></i> سعفة الأرفاغ ("حكة اللعب")</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>المنطقة المصابة:</strong> الفخذين الداخليين وقد تمتد إلى الأرداف أو البطن.</p>
+        <p><strong>العلامات المميزة:</strong></p>
+        <ul>
+          <li>حدود واضحة وحمراء مع قشور دقيقة عند الحواف.</li>
+          <li>منتصف بني أو أفتح لونًا (نادرًا ما يصيب كيس الصفن).</li>
+          <li>الشعور بالحرقة خاصة عند التعرق أو الاحتكاك.</li>
+          <li>تفاقم الأعراض مع الرطوبة في الطقس الحار.</li>
+        </ul>
+        <div class="img-gallery">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الأرفاغ+1" alt="سعفة الأرفاغ">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الأرفاغ+2" alt="سعفة الأرفاغ">
+        </div>
+      </div>
+      
+      <!-- سعفة الأظافر -->
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span><i class="fas fa-file-alt"></i> سعفة الأظافر</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>التطور التدريجي:</strong></p>
+        <ul>
+          <li>مرحلة مبكرة: بقع بيضاء أو صفراء على طرف الظفر.</li>
+          <li>مرحلة متقدمة:
+            <ul>
+              <li>تغير لون الظفر إلى بني أو أسود.</li>
+              <li>تثخّن الظفر مما يجعله صلبًا ويصعب تقليمه.</li>
+              <li>تفتت الأظافر وقد تنفصل عن الجلد تحتها.</li>
+              <li>التهاب حول الظفر مع ألم واحمرار في الحالات الشديدة.</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="img-gallery">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الأظافر+1" alt="سعفة الأظافر">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الأظافر+2" alt="سعفة الأظافر">
+        </div>
+      </div>
+      
+      <!-- سعفة الوجه -->
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span><i class="fas fa-smile"></i> سعفة الوجه</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>المنطقة المصابة:</strong> الخدين، الذقن، أو الجبهة.</p>
+        <p><strong>الأعراض:</strong></p>
+        <ul>
+          <li>طفح غير مكتمل الحلقات يظهر كبقع حمراء مسطحة.</li>
+          <li>تفاقم مع التعرض للشمس مما يسبب حرقان أو حكة.</li>
+          <li>تشخيص خاطئ شائع حيث يُخلط بينه وبين الإكزيما أو الذئبة الحمراء.</li>
+        </ul>
+        <div class="img-gallery">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الوجه+1" alt="سعفة الوجه">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+الوجه+2" alt="سعفة الوجه">
+        </div>
+      </div>
+      
+      <!-- سعفة اللحية -->
+      <button class="accordion-btn" onclick="toggleAccordion(this)">
+        <span><i class="fas fa-male"></i> سعفة اللحية</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="accordion-content">
+        <p><strong>الفئة المصابة:</strong> الرجال الذين يحلقون ذقونهم.</p>
+        <p><strong>الأعراض:</strong></p>
+        <ul>
+          <li>بثور عميقة أو سطحية حول بصيلات الشعر.</li>
+          <li>تورم واحمرار يشبه العدوى البكتيرية (لكن بدون ألم).</li>
+          <li>تساقط الشعر مع ملمس إسفنجي للجلد.</li>
+        </ul>
+        <div class="img-gallery">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+اللحية+1" alt="سعفة اللحية">
+          <img src="https://via.placeholder.com/300x200?text=سعفة+اللحية+2" alt="سعفة اللحية">
+        </div>
+      </div>
+    </section>
+    
+    <!-- التشخيص -->
+    <section class="section-card">
+      <h2>التشخيص</h2>
+      <p><strong><i class="fas fa-vial"></i> فحص عينة مجهرية:</strong></p>
+      <p>
+        يُكشط جزء من الجلد أو الأظافر ويُفحص تحت المجهر باستخدام محلول KOH لاكتشاف الخيوط الفطرية.
+      </p>
+      <p><strong><i class="fas fa-flask"></i> زراعة فطرية:</strong></p>
+      <p>
+        تُستخدم لتحديد نوع الفطر بدقة (في الحالات الصعبة).
+      </p>
+      <p><strong><i class="fas fa-lightbulb"></i> مصباح وود:</strong></p>
+      <p>
+        يُظهر بعض أنواع الفطريات توهجًا تحت الأشعة فوق البنفسجية.
+      </p>
+    </section>
+    
+    <!-- الوقاية -->
+    <section class="section-card">
+      <h2>الوقاية</h2>
+      <ul>
+        <li><i class="fas fa-ban"></i> تجنب مشاركة الأدوات الشخصية (المناشف، الأحذية، مقصات الأظافر).</li>
+        <li><i class="fas fa-tint-slash"></i> جفف قدميك جيدًا بعد الغسل، خاصة بين الأصابع.</li>
+        <li><i class="fas fa-shoe-prints"></i> ارتدِ جوارب قطنية وأحذية مُهَوَّاة.</li>
+        <li><i class="fas fa-spray-can"></i> رش الأحذية بمسحوق مضاد للفطريات يوميًا.</li>
+        <li><i class="fas fa-paw"></i> افحص الحيوانات الأليفة إذا ظهرت عليها بقع صلعاء أو حكة.</li>
+      </ul>
+    </section>
+    
+    <!-- العلاج -->
+    <section class="section-card">
+      <h2>العلاج</h2>
+      <p><strong>العدوى السطحية (الجلد، القدم، الفخذ):</strong></p>
+      <p><strong>كريمات مضادة للفطريات:</strong></p>
+      <ul>
+        <li>تيربينافين: مرة يوميًا لمدة 1-2 أسبوع.</li>
+        <li>كلوتريمازول: مرتين يوميًا لمدة 4 أسابيع.</li>
+      </ul>
+      <p><strong>نصائح:</strong> الحفاظ على نظافة وجفاف المنطقة، والاستمرار في العلاج أسبوعًا بعد اختفاء الأعراض.</p>
+      <p><strong>سعفة الرأس أو اللحية:</strong></p>
+      <p><strong>أدوية فموية:</strong></p>
+      <ul>
+        <li>جريزيوفولفين: يوميًا لمدة 6-12 أسبوع.</li>
+        <li>تيربينافين: يوميًا لمدة 4 أسابيع.</li>
+      </ul>
+      <p><strong>شامبو طبي:</strong> يحتوي على السيلينيوم أو الكيتوكونازول، يُستخدم مرتين أسبوعيًا.</p>
+      <p><strong>سعفة الأظافر:</strong></p>
+      <p><strong>أدوية فموية:</strong></p>
+      <ul>
+        <li>تيربينافين: يوميًا لمدة 3 أشهر.</li>
+        <li>إيتراكونازول: جرعة متقطعة (أسبوع علاج، 3 أسابيع راحة).</li>
+      </ul>
+      <p><strong>طلاء الأظافر:</strong> سيكلوبيروكس يُستخدم يوميًا لمدة 6-12 شهر (فعالية محدودة).</p>
+    </section>
+    
+  </div>
+  
+  <script>
+    function toggleAccordion(btn) {
+      const content = btn.nextElementSibling;
+      const arrow = btn.querySelector('.arrow');
+      // إغلاق جميع الأكوردين المفتوحة الأخرى
+      document.querySelectorAll('.accordion-content').forEach(item => {
+        if (item !== content) {
+          item.classList.remove('show');
+          item.previousElementSibling.querySelector('.arrow').style.transform = 'rotate(0deg)';
+        }
+      });
+      // تبديل العرض للأكوردين الحالي
+      content.classList.toggle('show');
+      if (content.classList.contains('show')) {
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+  </script>
+</body>
+</html>

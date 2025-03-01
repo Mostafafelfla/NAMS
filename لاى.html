@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدليل التفاعلي للسعفة الجلدية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- استدعاء مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2A5C82;
+            --secondary: #5DA9E9;
+            --accent: #FF6B6B;
+            --light: #F8F9FA;
+            --dark: #1E293B;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* خلفية متحركة بأشكال فطرية */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        .fungus {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://via.placeholder.com/50x50?text=F');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+            animation: float 10s infinite ease-in-out;
+        }
+        .fungus.f1 { top: 10%; left: 20%; animation-delay: 0s; }
+        .fungus.f2 { top: 50%; left: 80%; animation-delay: 2s; }
+        .fungus.f3 { top: 80%; left: 30%; animation-delay: 4s; }
+        .fungus.f4 { top: 30%; left: 60%; animation-delay: 1s; }
+        .fungus.f5 { top: 70%; left: 10%; animation-delay: 3s; }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(20deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        /* تأثيرات الأنيميشن */
+        @keyframes slideUp {
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.9); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.8;
+            margin: 0;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* الترويسة المعدلة */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 6rem 2rem 4rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .hero-section:hover {
+            transform: translateY(-5px);
+        }
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: pulse 8s infinite;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.8s forwards;
+        }
+
+        /* البطاقات المحسنة */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            transform-style: preserve-3d;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        .card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(-2deg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* عناوين الأقسام */
+        .section-title {
+            color: var(--primary);
+            padding-right: 1.5rem;
+            border-right: 4px solid var(--accent);
+            position: relative;
+            margin: 2rem 0;
+        }
+        .section-title::before {
+            content: "\f0f4";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: -2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        /* أكوردين للتفاصيل المتطورة */
+        .accordion-item {
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .accordion-header {
+            background: var(--light);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            position: relative;
+        }
+        .accordion-header:hover {
+            background: #e3f2fd;
+            transform: translateX(10px);
+        }
+        .accordion-header.active {
+            background: var(--primary);
+            color: white;
+        }
+        .accordion-icon {
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            background: rgba(255,255,255,0.9);
+            padding: 0 1.5rem;
+        }
+        .accordion-content.show {
+            max-height: 1000px;
+            margin-top: 0.5rem;
+        }
+
+        /* معرض الصور التفاعلي */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: var(--transition);
+        }
+        .gallery-item:hover {
+            transform: perspective(1000px) rotateY(5deg) scale(1.05);
+            z-index: 2;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+        .gallery-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* شرائح العلاج */
+        .treatment-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding: 1rem 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        .treatment-card {
+            flex: 0 0 300px;
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            scroll-snap-align: start;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+        .treatment-card:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+            .treatment-slider {
+                scroll-snap-type: none;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية متحركة بأشكال فطرية -->
+    <div class="animated-bg">
+        <div class="fungus f1"></div>
+        <div class="fungus f2"></div>
+        <div class="fungus f3"></div>
+        <div class="fungus f4"></div>
+        <div class="fungus f5"></div>
+    </div>
+
+    <div class="container">
+        <!-- ترويسة الصفحة -->
+        <section class="hero-section">
+            <h1 class="hero-title">الالتهابات الفطرية الجلدية</h1>
+            <p>الدليل التفاعلي للتشخيص والعلاج والوقاية</p>
+        </section>
+
+        <!-- ما هي الفطريات الجلدية؟ -->
+        <div class="card">
+            <h2 class="section-title">ما هي الفطريات الجلدية؟</h2>
+            <p>
+                الفطريات الجلدية (Dermatophytes) هي كائنات دقيقة تتغذى على الكيراتين الموجود في الجلد، الشعر، والأظافر. تُسبب عدوى تُعرف باسم "السعفة"، وتظهر بأشكال مختلفة حسب المنطقة المصابة.
+            </p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Trichophyton_rubrum_var_rodhaini.jpg/220px-Trichophyton_rubrum_var_rodhaini.jpg" decoding="async" width="220" height="149" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Trichophyton_rubrum_var_rodhaini.jpg/330px-Trichophyton_rubrum_var_rodhaini.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Trichophyton_rubrum_var_rodhaini.jpg/440px-Trichophyton_rubrum_var_rodhaini.jpg 2x" data-file-width="700" data-file-height="474">
+                </div>
+                <div class="gallery-item">
+                    <img src="//upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Microsporum_canis_1.JPG/220px-Microsporum_canis_1.JPG" decoding="async" width="220" height="161" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Microsporum_canis_1.JPG/330px-Microsporum_canis_1.JPG 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Microsporum_canis_1.JPG/440px-Microsporum_canis_1.JPG 2x" data-file-width="1198" data-file-height="876">
+                </div>
+            </div>
+        </div>
+
+        <!-- كيف تنتقل العدوى؟ -->
+        <div class="card">
+            <h2 class="section-title">كيف تنتقل العدوى؟</h2>
+            <p><strong><i class="fas fa-handshake"></i> الاتصال المباشر:</strong></p>
+            <ul>
+                <li>من شخص مصاب أو حيوانات أليفة (مثل القطط والكلاب).</li>
+                <li>لمس أسطح ملوثة (أرضيات الصالات الرياضية، أحواض السباحة).</li>
+            </ul>
+            <p><strong><i class="fas fa-exclamation-triangle"></i> عوامل تزيد خطر الإصابة:</strong></p>
+            <ul>
+                <li>الرطوبة والتعرق الزائد.</li>
+                <li>ارتداء ملابس ضيقة أو أحذية غير مُهَوَّاة.</li>
+                <li>ضعف المناعة أو وجود جروح جلدية.</li>
+            </ul>
+        </div>
+
+        <!-- أعراض العدوى حسب نوعها -->
+        <div class="card">
+            <h2 class="section-title">الأعراض حسب نوع العدوى</h2>
+            <!-- سعفة الرأس -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fas fa-user-md"></i> سعفة الرأس</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>الفئة الأكثر إصابة:</strong> الأطفال بين 3-14 سنة.</p>
+                    <p><strong>الأعراض:</strong></p>
+                    <ul>
+                        <li>بقع دائرية خالية من الشعر مع قشور رمادية أو بيضاء على الفروة.</li>
+                        <li>نقاط سوداء بسبب تكسر الشعر عند مستوى الجلد.</li>
+                        <li>حكة شديدة قد تسبب خدوشًا وتقرحات.</li>
+                        <li>التهاب بكتيري ثانوي (تورم، ألم، أو صديد) في الحالات المتقدمة.</li>
+                        <li>كيريون: تورم مؤلم مع بثور مليئة بالصديد نتيجة رد فعل مناعي شديد.</li>
+                    </ul>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Teigne_tondante_enfant.jpg/220px-Teigne_tondante_enfant.jpg" decoding="async" width="220" height="210" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Teigne_tondante_enfant.jpg/330px-Teigne_tondante_enfant.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Teigne_tondante_enfant.jpg/440px-Teigne_tondante_enfant.jpg 2x" data-file-width="2910" data-file-height="2777">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Sequeira_Plate_15.jpg/220px-Sequeira_Plate_15.jpg" decoding="async" width="220" height="324" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Sequeira_Plate_15.jpg/330px-Sequeira_Plate_15.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/99/Sequeira_Plate_15.jpg/440px-Sequeira_Plate_15.jpg 2x" data-file-width="1082" data-file-height="1595">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- سعفة الجسد -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fas fa-users"></i> سعفة الجسد</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>طفح حلقي:</strong> دائري أو بيضاوي مع:</p>
+                    <ul>
+                        <li>حواف مرتفعة وحمراء قد تحتوي على بثور صغيرة أو قشور.</li>
+                        <li>منتصف نَضِح أو شفاف يبدو كأنه "يُشفى" من المركز.</li>
+                        <li>حكة تتراوح من خفيفة إلى شديدة.</li>
+                        <li>قد تظهر حلقات متعددة أو تندمج معًا.</li>
+                    </ul>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg/220px-Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg" decoding="async" width="220" height="156" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg/330px-Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg/440px-Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg 2x" data-file-width="700" data-file-height="496">
+                        </div>
+                        <div class="gallery-item">
+                            <img alt="Tinea corporis, right side of neck" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Sequeira_Plate_12.jpg/186px-Sequeira_Plate_12.jpg" decoding="async" width="186" height="270" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Sequeira_Plate_12.jpg/280px-Sequeira_Plate_12.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Sequeira_Plate_12.jpg/373px-Sequeira_Plate_12.jpg 2x" data-file-width="1086" data-file-height="1571">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- سعفة القدم (قدم الرياضي) -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fas fa-shoe-prints"></i> سعفة القدم (قدم الرياضي)</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>الأشكال الرئيسية:</strong></p>
+                    <ul>
+                        <li>النوع بين الأصابع: التهاب وتقشير بين الإصبع الرابع والخامس مع تشققات مؤلمة ورائحة كريهة.</li>
+                        <li>النوع الفقاعي: بثور مائية على جوانب القدم أو باطنها مع حكة شديدة وقد تنفجر لتسبب تقرحات.</li>
+                        <li>النوع القشري: جلد سميك وجاف في الكعب والباطن مع تقشر يشبه "النعل" وتشققات.</li>
+                    </ul>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img id="dimg_5YTCZ-_1KMeN9u8PrM_2cQ_205" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUxERcDU5ibOMMgobXE1xxM5uV2KPcDvx1fA&amp;s" class="YQ4gaf" height="189" style="object-position:0% 40%" width="266" alt="DermaCompass - Tinea pedis" data-csiid="5YTCZ-_1KMeN9u8PrM_2cQ_42" data-atf="4" data-ilt="1740801369894" data-deferred="3" data-iml="1740801369894">
+                        </div>
+                        <div class="gallery-item">
+                            <img id="dimg_5YTCZ-_1KMeN9u8PrM_2cQ_300" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRhMziN1dKSE787M4Nn2P2EtMWH-I4BLgGhw&amp;s" class="YQ4gaf" height="207" style="object-position:42% 16%" width="243" alt="Athlete's foot - Wikipedia" data-csiid="5YTCZ-_1KMeN9u8PrM_2cQ_48" data-atf="4" data-ilt="1740801370090" data-deferred="3" data-iml="1740801370091">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- سعفة الأرفاغ ("حكة اللعب") -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fas fa-child"></i> سعفة الأرفاغ ("حكة اللعب")</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>المنطقة المصابة:</strong> الفخذين الداخليين وقد تمتد إلى الأرداف أو البطن.</p>
+                    <p><strong>العلامات المميزة:</strong></p>
+                    <ul>
+                        <li>حدود واضحة وحمراء مع قشور دقيقة عند الحواف.</li>
+                        <li>منتصف بني أو أفتح لونًا (نادرًا ما يصيب كيس الصفن).</li>
+                        <li>الشعور بالحرقة خاصة عند التعرق أو الاحتكاك.</li>
+                        <li>تفاقم الأعراض مع الرطوبة في الطقس الحار.</li>
+                    </ul>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img id="dimg_sIXCZ9T3EMy6i-gPmIKoyAI_399" src="data:image/jpeg;base64,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" class="YQ4gaf" height="163" style="object-position:center" width="310" alt="‫سعفة الارفاغ بين الفخذين‬‎" data-csiid="sIXCZ9T3EMy6i-gPmIKoyAI_29" data-atf="12">
+                        </div>
+                        <div class="gallery-item">
+                            <img id="dimg_sIXCZ9T3EMy6i-gPmIKoyAI_307" src="data:image/jpeg;base64,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" class="YQ4gaf" height="211" style="object-position:0% 42%" width="239" alt="‫سعفة ساقية - ويكيبيديا‬‎" data-csiid="sIXCZ9T3EMy6i-gPmIKoyAI_9" data-atf="1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- سعفة الأظافر -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fas fa-file-alt"></i> سعفة الأظافر</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>التطور التدريجي:</strong></p>
+                    <ul>
+                        <li>مرحلة مبكرة: بقع بيضاء أو صفراء على طرف الظفر.</li>
+                        <li>مرحلة متقدمة:
+                            <ul>
+                                <li>تغير لون الظفر إلى بني أو أسود.</li>
+                                <li>تثخّن الظفر مما يجعله صلبًا ويصعب تقليمه.</li>
+                                <li>تفتت الأظافر وقد تنفصل عن الجلد تحتها.</li>
+                                <li>التهاب حول الظفر مع ألم واحمرار في الحالات الشديدة.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img alt="التهاب الظفر الفطري" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Oncymycosis.JPG/250px-Oncymycosis.JPG" decoding="async" width="250" height="245" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Oncymycosis.JPG/375px-Oncymycosis.JPG 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Oncymycosis.JPG/500px-Oncymycosis.JPG 2x" data-file-width="2946" data-file-height="2888">
+                        </div>
+                        <div class="gallery-item">
+                            <img id="dimg_W4bCZ9CrIveV9u8P847UoAw_13" src="data:image/jpeg;base64,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" class="YQ4gaf" height="162" style="object-position:70% 36%" width="311" alt="‫فطريات الأظافر: الأعراض والعلاجات المختلفة - ويب طب‬‎" data-csiid="W4bCZ9CrIveV9u8P847UoAw_9" data-atf="1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- سعفة الوجه -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fas fa-smile"></i> سعفة الوجه</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>المنطقة المصابة:</strong> الخدين، الذقن، أو الجبهة.</p>
+                    <p><strong>الأعراض:</strong></p>
+                    <ul>
+                        <li>طفح غير مكتمل الحلقات يظهر كبقع حمراء مسطحة.</li>
+                        <li>تفاقم مع التعرض للشمس مما يسبب حرقان أو حكة.</li>
+                        <li>تشخيص خاطئ شائع حيث يُخلط بينه وبين الإكزيما أو الذئبة الحمراء.</li>
+                    </ul>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/22/Tinea_barbae_4807_lores.jpg/220px-Tinea_barbae_4807_lores.jpg" decoding="async" width="220" height="147" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/22/Tinea_barbae_4807_lores.jpg/330px-Tinea_barbae_4807_lores.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/22/Tinea_barbae_4807_lores.jpg/440px-Tinea_barbae_4807_lores.jpg 2x" data-file-width="700" data-file-height="469">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- سعفة اللحية -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fas fa-male"></i> سعفة اللحية</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>الفئة المصابة:</strong> الرجال الذين يحلقون ذقونهم.</p>
+                    <p><strong>الأعراض:</strong></p>
+                    <ul>
+                        <li>بثور عميقة أو سطحية حول بصيلات الشعر.</li>
+                        <li>تورم واحمرار يشبه العدوى البكتيرية (لكن بدون ألم).</li>
+                        <li>تساقط الشعر مع ملمس إسفنجي للجلد.</li>
+                    </ul>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img id="dimg_0ofCZ-yeNbaU9u8P9-7eyAc_367" src="data:image/jpeg;base64,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" class="YQ4gaf" height="195" style="object-position:0% 0%" width="258" alt="‫ما هو تشخيص الحالة؟ - الجواب:... - الأدوية السورية Up To Date | Facebook‬‎" data-csiid="0ofCZ-yeNbaU9u8P9-7eyAc_21" data-atf="5">
+                        </div>
+                        <div class="gallery-item">
+                            <img id="dimg_0ofCZ-yeNbaU9u8P9-7eyAc_341" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXg6-p2PhldTs03AnMYmEkNo2mTWKgIfZ0hw&amp;s" class="YQ4gaf" height="194" style="object-position:60% 0%" width="259" alt="‫صلع اللحية.. الأعراض والعلاج المناسب‬‎" data-csiid="0ofCZ-yeNbaU9u8P9-7eyAc_51" data-atf="4" data-ilt="1740802148606" data-deferred="3" data-iml="1740802148607">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- التشخيص -->
+        <div class="card">
+            <h2 class="section-title">التشخيص</h2>
+            <p><strong><i class="fas fa-vial"></i> فحص عينة مجهرية:</strong></p>
+            <p>
+                يُكشط جزء من الجلد أو الأظافر ويُفحص تحت المجهر باستخدام محلول KOH لاكتشاف الخيوط الفطرية.
+            </p>
+            <p><strong><i class="fas fa-flask"></i> زراعة فطرية:</strong></p>
+            <p>
+                تُستخدم لتحديد نوع الفطر بدقة (في الحالات الصعبة).
+            </p>
+            <p><strong><i class="fas fa-lightbulb"></i> مصباح وود:</strong></p>
+            <p>
+                يُظهر بعض أنواع الفطريات توهجًا تحت الأشعة فوق البنفسجية.
+            </p>
+        </div>
+
+        <!-- الوقاية -->
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-shield-alt" style="margin-left: 0.5rem;"></i> الوقاية</h2>
+            <ul>
+                <li><i class="fas fa-ban"></i> تجنب مشاركة الأدوات الشخصية (المناشف، الأحذية، مقصات الأظافر).</li>
+                <li><i class="fas fa-tint-slash"></i> جفف قدميك جيدًا بعد الغسل، خاصة بين الأصابع.</li>
+                <li><i class="fas fa-shoe-prints"></i> ارتدِ جوارب قطنية وأحذية مُهَوَّاة.</li>
+                <li><i class="fas fa-spray-can"></i> رش الأحذية بمسحوق مضاد للفطريات يوميًا.</li>
+                <li><i class="fas fa-paw"></i> افحص الحيوانات الأليفة إذا ظهرت عليها بقع صلعاء أو حكة.</li>
+            </ul>
+        </div>
+
+        <!-- العلاج -->
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-prescription" style="margin-left: 0.5rem;"></i> العلاج</h2>
+            <p><strong>العدوى السطحية (الجلد، القدم، الفخذ):</strong></p>
+            <p><strong>كريمات مضادة للفطريات:</strong></p>
+            <ul>
+                <li>تيربينافين: مرة يوميًا لمدة 1-2 أسبوع.</li>
+                <li>كلوتريمازول: مرتين يوميًا لمدة 4 أسابيع.</li>
+            </ul>
+            <p><strong>نصائح:</strong> الحفاظ على نظافة وجفاف المنطقة، والاستمرار في العلاج أسبوعًا بعد اختفاء الأعراض.</p>
+            <p><strong>سعفة الرأس أو اللحية:</strong></p>
+            <p><strong>أدوية فموية:</strong></p>
+            <ul>
+                <li>جريزيوفولفين: يوميًا لمدة 6-12 أسبوع.</li>
+                <li>تيربينافين: يوميًا لمدة 4 أسابيع.</li>
+            </ul>
+            <p><strong>شامبو طبي:</strong> يحتوي على السيلينيوم أو الكيتوكونازول، يُستخدم مرتين أسبوعيًا.</p>
+            <p><strong>سعفة الأظافر:</strong></p>
+            <p><strong>أدوية فموية:</strong></p>
+            <ul>
+                <li>تيربينافين: يوميًا لمدة 3 أشهر.</li>
+                <li>إيتراكونازول: جرعة متقطعة (أسبوع علاج، 3 أسابيع راحة).</li>
+            </ul>
+            <p><strong>طلاء الأظافر:</strong> سيكلوبيروكس يُستخدم يوميًا لمدة 6-12 شهر (فعالية محدودة).</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(element) {
+            var content = element.nextElementSibling;
+            var icon = element.querySelector('.accordion-icon');
+            // إغلاق جميع الأكوردين الأخرى
+            document.querySelectorAll('.accordion-content').forEach(function(item) {
+                if (item !== content) {
+                    item.style.maxHeight = null;
+                    item.previousElementSibling.classList.remove('active');
+                    item.previousElementSibling.querySelector('.accordion-icon').style.transform = 'rotate(0deg)';
+                }
+            });
+            // تبديل العرض للأكوردين الحالي
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

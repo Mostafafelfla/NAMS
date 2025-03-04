@@ -1,8 +1,10 @@
-<html lang="ar" dir="rtl"><head>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الدليل التفاعلي للسعفة الجلدية - دليل شامل ومفصل</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <!-- استدعاء Font Awesome للأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
@@ -86,6 +88,7 @@
       50% { transform: scale(1.1); opacity: 0.1; }
     }
     .hero-title {
+      font-family: 'Orbitron', sans-serif;
       font-size: 3rem;
       margin-bottom: 1.5rem;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
@@ -109,13 +112,15 @@
       margin: 0 auto;
       padding: 2rem;
     }
-    /* تصميم البطاقات */
+    /* تصميم البطاقات بنمط زجاجي */
     .card {
-      background: white;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
       border-radius: 20px;
       padding: 2.5rem;
       margin: 3rem 0;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
       transform-style: preserve-3d;
       transition: var(--transition);
       cursor: pointer;
@@ -124,7 +129,7 @@
     }
     .card:hover {
       transform: translateY(-10px) rotateX(3deg) rotateY(-3deg);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
     }
     .card::before {
       content: "";
@@ -140,13 +145,14 @@
     .card:hover::before {
       transform: scaleX(1);
     }
-    /* عناوين الأقسام مع أيقونات مميزة */
+    /* عناوين الأقسام المستقبلية */
     .section-title {
-      color: var(--primary);
+      color: var(--accent);
       padding-right: 1.5rem;
       border-right: 4px solid var(--accent);
       margin: 2rem 0;
       position: relative;
+      font-family: 'Orbitron', sans-serif;
     }
     .section-title::before {
       content: "\f0f4";
@@ -160,28 +166,29 @@
     }
     p { margin-bottom: 1rem; }
     ul { margin: 1rem 0 1rem 2rem; }
-    /* نظام الأكورديون المتطور */
+    /* نظام الأكورديون المستقبلية */
     .accordion-item {
       margin: 2rem 0;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
     .accordion-header {
-      background: var(--light);
+      background: rgba(255,255,255,0.1);
       padding: 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
       transition: var(--transition);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
     }
     .accordion-header:hover {
-      background: #e8f0fe;
+      background: rgba(255,255,255,0.2);
       transform: translateX(10px);
     }
     .accordion-header.active {
-      background: var(--primary);
+      background: var(--accent);
       color: white;
     }
     .accordion-icon {
@@ -192,7 +199,7 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease;
-      background: rgba(255,255,255,0.95);
+      background: rgba(0,0,0,0.5);
       padding: 0 1.5rem;
     }
     .accordion-content.show {
@@ -200,7 +207,7 @@
       margin-top: 0.5rem;
       padding-bottom: 1.5rem;
     }
-    /* معرض الصور الشبكي */
+    /* معرض الصور الشبكي المستقبلية */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -212,8 +219,8 @@
       position: relative;
       border-radius: 15px;
       overflow: hidden;
-      border: 2px solid #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: var(--transition);
     }
     figure.gallery-item:hover {
@@ -234,10 +241,10 @@
       font-size: 0.9rem;
       text-align: center;
       padding: 0.5rem 0;
-      background: rgba(0,0,0,0.05);
-      color: var(--dark);
+      background: rgba(0,0,0,0.2);
+      color: var(--accent);
     }
-    /* شريط تمرير لعلاج الحالات */
+    /* شريط تمرير لعلاج الحالات المستقبلية */
     .treatment-slider {
       display: flex;
       overflow-x: auto;
@@ -248,11 +255,11 @@
     }
     .treatment-card {
       flex: 0 0 300px;
-      background: var(--light);
+      background: rgba(255,255,255,0.1);
       padding: 2rem;
       border-radius: 15px;
       scroll-snap-align: start;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       transition: var(--transition);
       font-size: 0.9rem;
     }
@@ -261,12 +268,13 @@
     }
     /* تذييل الموقع */
     footer {
-      background: var(--primary);
-      color: white;
+      background: var(--secondary);
+      color: var(--accent);
       text-align: center;
       padding: 1.5rem 0;
       font-size: 1rem;
       margin-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
     }
     footer a {
       color: var(--accent);
@@ -278,8 +286,8 @@
       .container { padding: 1rem; }
       .hero-title { font-size: 2.2rem; }
       .card { padding: 1.5rem; }
-      .treatment-slider { scroll-snap-type: none; }
       .gallery-grid { grid-template-columns: 1fr; }
+      figure.gallery-item img { height: auto; }
     }
   </style>
 </head>
@@ -309,7 +317,7 @@
       <div class="gallery-grid">
         <figure class="gallery-item">
           <img src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Trichophyton_rubrum_var_rodhaini.jpg/220px-Trichophyton_rubrum_var_rodhaini.jpg" alt="فطريات جلدية 1">
-          <figcaption>تصوير ميكروسكوبي </figcaption>
+          <figcaption>تصوير ميكروسكوبي</figcaption>
         </figure>
         <figure class="gallery-item">
           <img src="//upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Microsporum_canis_1.JPG/220px-Microsporum_canis_1.JPG" alt="فطريات جلدية 2">
@@ -319,245 +327,261 @@
     </div>
 
     <!-- بطاقة: كيف تنتقل العدوى؟ -->
- <div class="card">
-    <h2 class="section-title">كيف تنتقل العدوى؟</h2>
-    <p><strong><i class="fas fa-handshake"></i> الاتصال المباشر:</strong></p>
-    <ul>
-      <li>من شخص مصاب أو حيوانات أليفة (مثل القطط والكلاب).</li>
-      <li>لمس أسطح ملوثة (أرضيات الصالات الرياضية، أحواض السباحة).</li>
-    </ul>
-    <p><strong><i class="fas fa-exclamation-triangle"></i> عوامل تزيد خطر الإصابة:</strong></p>
-    <ul>
-      <li>الرطوبة والتعرق الزائد.</li>
-      <li>ارتداء ملابس ضيقة أو أحذية غير مُهَوَّاة.</li>
-      <li>ضعف المناعة أو وجود جروح جلدية.</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h2 class="section-title">الأعراض حسب نوع العدوى</h2>
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span><i class="fas fa-user-md"></i> سعفة الرأس</span>
-        <i class="fas fa-chevron-down accordion-icon"></i>
+    <div class="card">
+      <h2 class="section-title">كيف تنتقل العدوى؟</h2>
+      <p><strong><i class="fas fa-handshake"></i> الاتصال المباشر:</strong></p>
+      <ul>
+        <li>من شخص مصاب أو حيوانات أليفة (مثل القطط والكلاب).</li>
+        <li>لمس أسطح ملوثة مثل أرضيات الصالات الرياضية أو أحواض السباحة.</li>
+      </ul>
+      <p><strong><i class="fas fa-exclamation-triangle"></i> عوامل خطر الإصابة:</strong></p>
+      <ul>
+        <li>الرطوبة والتعرق الزائد.</li>
+        <li>ارتداء ملابس ضيقة أو أحذية غير مهواة.</li>
+        <li>ضعف المناعة أو وجود جروح صغيرة في الجلد.</li>
+      </ul>
+    </div>
+
+    <!-- بطاقة: أعراض العدوى حسب نوعها -->
+    <div class="card">
+      <h2 class="section-title">الأعراض حسب نوع العدوى</h2>
+      <!-- سعفة الرأس -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-user-md"></i> سعفة الرأس</span>
+          <i class="fas fa-chevron-down accordion-icon" style="transform: rotate(0deg);"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>الفئة الأكثر إصابة:</strong> الأطفال بين 3-14 سنة.</p>
+          <p><strong>الأعراض:</strong></p>
+          <ul>
+            <li>بقع دائرية خالية من الشعر مع قشور رمادية أو بيضاء.</li>
+            <li>نقاط سوداء بسبب تكسر الشعر عند مستوى الجلد.</li>
+            <li>حكة شديدة قد تسبب خدوشًا وتقرحات.</li>
+            <li>التهاب بكتيري ثانوي في الحالات المتقدمة.</li>
+            <li>كيريون: تورم مؤلم مع بثور مليئة بالصديد نتيجة رد فعل مناعي شديد.</li>
+          </ul>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Teigne_tondante_enfant.jpg/220px-Teigne_tondante_enfant.jpg" alt="سعفة الرأس 1">
+              <figcaption>سعفة الرأس 1</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Sequeira_Plate_15.jpg/220px-Sequeira_Plate_15.jpg" alt="سعفة الرأس 2">
+              <figcaption>سعفة الرأس 2</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
-      <div class="accordion-content">
-        <p><strong>الفئة الأكثر إصابة:</strong> الأطفال بين 3-14 سنة.</p>
-        <p><strong>الأعراض:</strong></p>
-        <ul>
-          <li>بقع دائ  ية خالية من الشعر مع قشور رمادية أو بيضاء على الفروة.</li>
-          <li>نقاط سوداء بسبب تكسر الشعر عند مستوى الجلد.</li>
-          <li>حكة شديدة قد تسبب خدوشًا وتقرحات.</li>
-          <li>التهاب بكتيري ثانوي (تورم، ألم، أو صديد) في الحالات المتقدمة.</li>
-          <li>كيريون: تورم مؤلم مع بثور مليئة بالصديد نتيجة رد فعل مناعي شديد.</li>
-        </ul>
-        <div class="gallery-grid">
+      <!-- سعفة الجسد -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-users"></i> سعفة الجسد</span>
+          <i class="fas fa-chevron-down accordion-icon" style="transform: rotate(0deg);"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>طفح حلقي:</strong> دائري أو بيضاوي مع:</p>
+          <ul>
+            <li>حواف مرتفعة وحمراء قد تحتوي على بثور صغيرة أو قشور.</li>
+            <li>منتصف شفاف أو ناضج يبدو كأنه "يُشفى" من المركز.</li>
+            <li>حكة تتراوح من خفيفة إلى شديدة.</li>
+            <li>قد تظهر حلقات متعددة أو تندمج معًا.</li>
+          </ul>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg/220px-Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg" alt="سعفة الجسد 1">
+              <figcaption>سعفة الجسد 1</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Sequeira_Plate_12.jpg/186px-Sequeira_Plate_12.jpg" alt="سعفة الجسد 2">
+              <figcaption>سعفة الجسد 2</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <!-- سعفة القدم (قدم الرياضي) -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-shoe-prints"></i> سعفة القدم (قدم الرياضي)</span>
+          <i class="fas fa-chevron-down accordion-icon" style="transform: rotate(0deg);"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>الأشكال الرئيسية:</strong></p>
+          <ul>
+            <li>النوع بين الأصابع: التهاب وتقشير مع تشققات مؤلمة ورائحة كريهة.</li>
+            <li>النوع الفقاعي: بثور مائية على جوانب القدم أو باطنها مع حكة شديدة قد تنفجر.</li>
+            <li>النوع القشري: جلد جاف وسميك في منطقة الكعب والباطن مع تقشر يشبه "النعل".</li>
+          </ul>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUxERcDU5ibOMMgobXE1xxM5uV2KPcDvx1fA&amp;s" alt="سعفة القدم 1">
+              <figcaption>سعفة القدم 1</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRhMziN1dKSE787M4Nn2P2EtMWH-I4BLgGhw&amp;s" alt="سعفة القدم 2">
+              <figcaption>سعفة القدم 2</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <!-- سعفة الأرفاغ ("حكة اللعب") -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-child"></i> سعفة الأرفاغ ("حكة اللعب")</span>
+          <i class="fas fa-chevron-down accordion-icon" style="transform: rotate(0deg);"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>المنطقة المصابة:</strong> الفخذين الداخليين وقد تمتد إلى الأرداف أو البطن.</p>
+          <p><strong>العلامات المميزة:</strong></p>
+          <ul>
+            <li>حدود واضحة وحمراء مع قشور دقيقة عند الحواف.</li>
+            <li>منتصف بني أو أفتح لونًا (نادرًا ما يصيب كيس الصفن).</li>
+            <li>الشعور بالحرقة خاصة عند التعرق أو الاحتكاك.</li>
+            <li>تفاقم الأعراض مع الرطوبة في الطقس الحار.</li>
+          </ul>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Tinea_cruris.jpg/250px-Tinea_cruris.jpg" alt="سعفة الأرفاغ">
+              <figcaption>سعفة الأرفاغ</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <!-- سعفة الأظافر -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-file-alt"></i> سعفة الأظافر</span>
+          <i class="fas fa-chevron-down accordion-icon" style="transform: rotate(0deg);"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>التطور التدريجي:</strong></p>
+          <ul>
+            <li>مرحلة مبكرة: بقع بيضاء أو صفراء على طرف الظفر.</li>
+            <li>مرحلة متقدمة:
+              <ul>
+                <li>تغير لون الظفر إلى بني أو أسود.</li>
+                <li>تثخّن الظفر مما يجعله صلبًا ويصعب تقليمه.</li>
+                <li>تفتت الأظافر وقد تنفصل عن الجلد تحتها.</li>
+                <li>التهاب حول الظفر مع ألم واحمرار في الحالات الشديدة.</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Oncymycosis.JPG/250px-Oncymycosis.JPG" alt="سعفة الأظافر 1">
+              <figcaption>سعفة الأظافر 1</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="https://media.gemini.media/img/portrait/2017/6/6/2017_6_6_10_56_32_45.jpg" alt="سعفة الأظافر 2">
+              <figcaption>سعفة الأظافر 2</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <!-- سعفة الوجه -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-smile"></i> سعفة الوجه</span>
+          <i class="fas fa-chevron-down accordion-icon" style="transform: rotate(0deg);"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>المنطقة المصابة:</strong> الخدين، الذقن، أو الجبهة.</p>
+          <p><strong>الأعراض:</strong></p>
+          <ul>
+            <li>طفح غير مكتمل الحلقات يظهر كبقع حمراء مسطحة.</li>
+            <li>تفاقم مع التعرض للشمس مما يسبب حرقان أو حكة.</li>
+            <li>تشخيص خاطئ شائع حيث يُخلط بينه وبين الإكزيما أو الذئبة الحمراء.</li>
+          </ul>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/22/Tinea_barbae_4807_lores.jpg/220px-Tinea_barbae_4807_lores.jpg" alt="سعفة الوجه">
+              <figcaption>سعفة الوجه</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <!-- سعفة اللحية -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-male"></i> سعفة اللحية</span>
+          <i class="fas fa-chevron-down accordion-icon" style="transform: rotate(0deg);"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>الفئة المصابة:</strong> الرجال الذين يحلقون ذقونهم.</p>
+          <p><strong>الأعراض:</strong></p>
+          <ul>
+            <li>بثور عميقة أو سطحية حول بصيلات الشعر.</li>
+            <li>تورم واحمرار يشبه العدوى البكتيرية (لكن بدون ألم).</li>
+            <li>تساقط الشعر مع ملمس إسفنجي للجلد.</li>
+          </ul>
           <figure class="gallery-item">
-            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Teigne_tondante_enfant.jpg/220px-Teigne_tondante_enfant.jpg" alt="سعفة الرأس 1">
-            <figcaption>سعفة الرأس 1</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Sequeira_Plate_15.jpg/220px-Sequeira_Plate_15.jpg" alt="سعفة الرأس 2">
-            <figcaption>سعفة الرأس 2</figcaption>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXg6-p2PhldTs03AnMYmEkNo2mTWKgIfZ0hw&amp;s" alt="تينيا اللحية">
+            <figcaption>تينيا اللحية</figcaption>
           </figure>
         </div>
       </div>
     </div>
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span><i class="fas fa-users"></i> سعفة الجسد</span>
-        <i class="fas fa-chevron-down accordion-icon"></i>
-      </div>
-      <div class="accordion-content">
-        <p><strong>طفح حلقي:</strong> دائري أو بيضاوي مع:</p>
-        <ul>
-          <li>حواف مرتفعة وحمراء قد تحتوي على بثور صغيرة أو قشور.</li>
-          <li>منتصف نَضِح أو شفاف يبدو كأنه "يُشفى" من المركز.</li>
-          <li>حكة تتراوح من خفيفة إلى شديدة.</li>
-          <li>قد تظهر حلقات متعددة أو تندمج معًا.</li>
-        </ul>
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg/220px-Ringworm_on_the_arm%2C_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg" alt="سعفة الجسد 1">
-            <figcaption>سعفة الجسد 1</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Sequeira_Plate_12.jpg/186px-Sequeira_Plate_12.jpg" alt="سعفة الجسد 2">
-            <figcaption>سعفة الجسد 2</figcaption>
-          </figure>
-        </div>
-      </div>
+
+    <!-- بطاقة: التشخيص -->
+    <div class="card">
+      <h2 class="section-title">التشخيص</h2>
+      <p><strong><i class="fas fa-vial"></i> فحص العينة المجهرية:</strong></p>
+      <p>
+        يُكشط جزء من الجلد أو الأظافر ويُفحص تحت المجهر باستخدام محلول KOH لاكتشاف الخيوط الفطرية.
+      </p>
+      <p><strong><i class="fas fa-flask"></i> الزراعة الفطرية:</strong></p>
+      <p>
+        تُستخدم لتحديد نوع الفطر بدقة (في الحالات الصعبة).
+      </p>
+      <p><strong><i class="fas fa-lightbulb"></i> مصباح وود:</strong></p>
+      <p>
+        يُظهر بعض أنواع الفطريات توهجًا تحت الأشعة فوق البنفسجية.
+      </p>
     </div>
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span><i class="fas fa-shoe-prints"></i> سعفة القدم (قدم الرياضي)</span>
-        <i class="fas fa-chevron-down accordion-icon"></i>
-      </div>
-      <div class="accordion-content">
-        <p><strong>الأشكال الرئيسية:</strong></p>
-        <ul>
-          <li>النوع بين الأصابع: التهاب وتقشير بين الإصبع الرابع والخامس مع تشققات مؤلمة ورائحة كريهة.</li>
-          <li>النوع الفقاعي: بثور مائية على جوانب القدم أو باطنها مع حكة شديدة وقد تنفجر لتسبب تقرحات.</li>
-          <li>النوع القشري: جلد سميك وجاف في الكعب والباطن مع تقشر يشبه "النعل" وتشققات.</li>
-        </ul>
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUxERcDU5ibOMMgobXE1xxM5uV2KPcDvx1fA&amp;s" alt="سعفة القدم 1">
-            <figcaption>سعفة القدم 1</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRhMziN1dKSE787M4Nn2P2EtMWH-I4BLgGhw&amp;s" alt="سعفة القدم 2">
-            <figcaption>سعفة القدم 2</figcaption>
-          </figure>
-        </div>
-      </div>
+
+    <!-- بطاقة: الوقاية -->
+    <div class="card">
+      <h2 class="section-title"><i class="fas fa-shield-alt" style="margin-left: 0.5rem;"></i> الوقاية</h2>
+      <ul>
+        <li><i class="fas fa-ban"></i> تجنب مشاركة الأدوات الشخصية (المناشف، الأحذية، مقصات الأظافر).</li>
+        <li><i class="fas fa-tint-slash"></i> جفف قدميك جيدًا بعد الغسل، خاصة بين الأصابع.</li>
+        <li><i class="fas fa-shoe-prints"></i> ارتدِ جوارب قطنية وأحذية مُهَوَّاة.</li>
+        <li><i class="fas fa-spray-can"></i> رش الأحذية بمسحوق مضاد للفطريات يوميًا.</li>
+        <li><i class="fas fa-paw"></i> افحص الحيوانات الأليفة إذا ظهرت عليها بقع صلعاء أو حكة.</li>
+      </ul>
     </div>
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span><i class="fas fa-child"></i> سعفة الأرفاغ ("حكة اللعب")</span>
-        <i class="fas fa-chevron-down accordion-icon"></i>
-      </div>
-      <div class="accordion-content">
-        <p><strong>المنطقة المصابة:</strong> الفخذين الداخليين وقد تمتد إلى الأرداف أو البطن.</p>
-        <p><strong>العلامات المميزة:</strong></p>
-        <ul>
-          <li>حدود واضحة وحمراء مع قشور دقيقة عند الحواف.</li>
-          <li>منتصف بني أو أفتح لونًا (نادرًا ما يصيب كيس الصفن).</li>
-          <li>الشعور بالحرقة خاصة عند التعرق أو الاحتكاك.</li>
-          <li>تفاقم الأعراض مع الرطوبة في الطقس الحار.</li>
-        </ul>
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwQoELj44xW_jKdAFY3k9zzBH75ZhP0PWbRZ_lqHGB-QB47UdtTDmIICAcpXV5E7u5UwDTvk8kmlVc4VwyL6kUMPVA7wYBPsiW6oCLjIOaj5Nr8xuq9RMyRPpKxh_2KJVXCHWDvP8Cnlwu/w320-h195/%25D8%25AD%25D9%2585%25D8%25A7%25D9%2585%25D9%258A+%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B1%25D9%2581%25D8%25A7%25D8%25BA+%25D9%2588%25D8%25AF%25D8%25A7%25D8%25A1+%25D8%25A7%25D9%2584%25D9%2585%25D8%25A8%25D9%258A%25D8%25B6%25D8%25A7%25D8%25AA..+%25D9%2584%25D9%2588%25D9%2586+%25D8%25A3%25D8%25AD%25D9%2585%25D8%25B1+%25D8%25AC%25D9%2588%25D8%25B1%25D9%258A+%25D8%25A8%25D8%25A3%25D8%25B4%25D8%25B9%25D8%25A9+%25D9%2588%25D9%2588%25D8%25AF.+%25D8%25A7%25D9%2584%25D9%2581%25D8%25AD%25D8%25B5+%25D8%25A7%25D9%2584%25D9%2585%25D8%25AC%25D9%2587%25D8%25B1%25D9%258A+%25D9%2584%25D9%2583%25D8%25B4%25D8%25A7%25D8%25B7%25D8%25A9+%25D9%2585%25D9%2586+%25D8%25A7%25D9%2584%25D8%25A2%25D9%2581%25D8%25A9+%25D8%25AA%25D8%25A8%25D8%25AF%25D9%258A+%25D8%25A7%25D9%2584%25D8%25AC%25D8%25B1%25D8%25A7%25D8%25AB%25D9%258A%25D9%2585+%25D8%25A7%25D9%2584%25D9%2585%25D8%25B3%25D8%25A8%25D8%25A8%25D8%25A9.jpg" alt="سعفة الأرفاغ 1">
-            <figcaption>سعفة الأرفاغ 1</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Tinea_cruris.jpg/250px-Tinea_cruris.jpg" alt="سعفة الأرفاغ 2">
-            <figcaption>سعفة الأرفاغ 2</figcaption>
-          </figure>
-        </div>
-      </div>
+
+    <!-- بطاقة: العلاج -->
+    <div class="card">
+      <h2 class="section-title"><i class="fas fa-prescription" style="margin-left: 0.5rem;"></i> العلاج</h2>
+      <p><strong>العدوى السطحية (الجلد، القدم، الفخذ):</strong></p>
+      <p><strong>كريمات مضادة للفطريات:</strong></p>
+      <ul>
+        <li>تيربينافين: يُستخدم مرة يوميًا لمدة 1-2 أسبوع.</li>
+        <li>كلوتريمازول: يُطبق مرتين يوميًا لمدة تصل إلى 4 أسابيع.</li>
+      </ul>
+      <p><strong>نصائح:</strong> الحفاظ على نظافة وجفاف المنطقة، والاستمرار في العلاج أسبوعًا بعد اختفاء الأعراض.</p>
+      <p><strong>سعفة الرأس أو اللحية:</strong></p>
+      <p><strong>العلاج الفموي:</strong></p>
+      <ul>
+        <li>جريزيوفولفين: يُؤخذ يوميًا لمدة 6-12 أسبوع.</li>
+        <li>تيربينافين: يُستخدم لفترة 4 أسابيع وفقًا لتعليمات الطبيب.</li>
+      </ul>
+      <p><strong>شامبو طبي:</strong> يحتوي على السيلينيوم أو الكيتوكونازول، يُستخدم مرتين أسبوعيًا.</p>
+      <p><strong>سعفة الأظافر:</strong></p>
+      <p><strong>العلاج الفموي وطلاء الأظافر:</strong></p>
+      <ul>
+        <li>تيربينافين: يُؤخذ يوميًا لمدة تصل إلى 3 أشهر.</li>
+        <li>إيتراكونازول: يُعطى بجرعات متقطعة (أسبوع علاج، ثم 3 أسابيع راحة) حسب الحالة.</li>
+      </ul>
+      <p><strong>طلاء الأظافر:</strong> سيكلوبيروكس يُستخدم يوميًا لمدة 6-12 شهر (فعالية محدودة).</p>
     </div>
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span><i class="fas fa-file-alt"></i> سعفة الأظافر</span>
-        <i class="fas fa-chevron-down accordion-icon"></i>
-      </div>
-      <div class="accordion-content">
-        <p><strong>التطور التدريجي:</strong></p>
-        <ul>
-          <li>مرحلة مبكرة: بقع بيضاء أو صفراء على طرف الظفر.</li>
-          <li>مرحلة متقدمة:
-            <ul>
-              <li>تغير لون الظفر إلى بني أو أسود.</li>
-              <li>تثخّن الظفر مما يجعله صلبًا ويصعب تقليمه.</li>
-              <li>تفتت الأظافر وقد تنفصل عن الجلد تحتها.</li>
-              <li>التهاب حول الظفر مع ألم واحمرار في الحالات الشديدة.</li>
-            </ul>
-          </li>
-        </ul>
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Oncymycosis.JPG/250px-Oncymycosis.JPG" alt="سعفة الأظافر 1">
-            <figcaption>سعفة الأظافر 1</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="https://media.gemini.media/img/portrait/2017/6/6/2017_6_6_10_56_32_45.jpg" alt="سعفة الأظافر 2">
-            <figcaption>سعفة الأظافر 2</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span><i class="fas fa-smile"></i> سعفة الوجه</span>
-        <i class="fas fa-chevron-down accordion-icon"></i>
-      </div>
-      <div class="accordion-content">
-        <p><strong>المنطقة المصابة:</strong> الخدين، الذقن، أو الجبهة.</p>
-        <p><strong>الأعراض:</strong></p>
-        <ul>
-          <li>طفح غير مكتمل الحلقات يظهر كبقع حمراء مسطحة.</li>
-          <li>تفاقم مع التعرض للشمس مما يسبب حرقان أو حكة.</li>
-          <li>تشخيص خاطئ شائع حيث يُخلط بينه وبين الإكزيما أو الذئبة الحمراء.</li>
-        </ul>
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/22/Tinea_barbae_4807_lores.jpg/220px-Tinea_barbae_4807_lores.jpg" alt="سعفة الوجه 1">
-            <figcaption>سعفة الوجه</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span><i class="fas fa-male"></i> سعفة اللحية</span>
-        <i class="fas fa-chevron-down accordion-icon"></i>
-      </div>
-      <div class="accordion-content">
-        <p><strong>الفئة المصابة:</strong> الرجال الذين يحلقون ذقونهم.</p>
-        <p><strong>الأعراض:</strong></p>
-        <ul>
-          <li>بثور عميقة أو سطحية حول بصيلات الشعر.</li>
-          <li>تورم واحمرار يشبه العدوى البكتيرية (لكن بدون ألم).</li>
-          <li>تساقط الشعر مع ملمس إسفنجي للجلد.</li>
-        </ul>
-        <figure class="gallery-item">
-                  </figure>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <h2 class="section-title">التشخيص</h2>
-    <p><strong><i class="fas fa-vial"></i> فحص عينة مجهرية:</strong></p>
-    <p>يُكشط جزء من الجلد أو الأظافر ويُفحص تحت المجهر باستخدام محلول KOH لاكتشاف الخيوط الفطرية.</p>
-    <p><strong><i class="fas fa-flask"></i> زراعة فطرية:</strong></p>
-    <p>تُستخدم لتحديد نوع الفطر بدقة (في الحالات الصعبة).</p>
-    <p><strong><i class="fas fa-lightbulb"></i> مصباح وود:</strong></p>
-    <p>يُظهر بعض أنواع الفطريات توهجًا تحت الأشعة فوق البنفسجية.</p>
-  </div>
-  <div class="card">
-    <h2 class="section-title"><i class="fas fa-shield-alt" style="margin-left:0.5rem;"></i> الوقاية</h2>
-    <ul>
-      <li><i class="fas fa-ban"></i> تجنب مشاركة الأدوات الشخصية (المناشف، الأحذية، مقصات الأظافر).</li>
-      <li><i class="fas fa-tint-slash"></i> جفف قدميك جيدًا بعد الغسل، خاصة بين الأصابع.</li>
-      <li><i class="fas fa-shoe-prints"></i> ارتدِ جوارب قطنية وأحذية مُهَوَّاة.</li>
-      <li><i class="fas fa-spray-can"></i> رش الأحذية بمسحوق مضاد للفطريات يوميًا.</li>
-      <li><i class="fas fa-paw"></i> افحص الحيوانات الأليفة إذا ظهرت عليها بقع صلعاء أو حكة.</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h2 class="section-title"><i class="fas fa-prescription" style="margin-left:0.5rem;"></i> العلاج</h2>
-    <p><strong>العدوى السطحية (الجلد، القدم، الفخذ):</strong></p>
-    <p><strong>كريمات مضادة للفطريات:</strong></p>
-    <ul>
-      <li>تيربينافين: مرة يوميًا لمدة 1-2 أسبوع.</li>
-      <li>كلوتريمازول: مرتين يوميًا لمدة 4 أسابيع.</li>
-    </ul>
-    <p><strong>نصائح:</strong> الحفاظ على نظافة وجفاف المنطقة، والاستمرار في العلاج أسبوعًا بعد اختفاء الأعراض.</p>
-    <p><strong>سعفة الرأس أو اللحية:</strong></p>
-    <p><strong>أدوية فموية:</strong></p>
-    <ul>
-      <li>جريزيوفولفين: يوميًا لمدة 6-12 أسبوع.</li>
-      <li>تيربينافين: يوميًا لمدة 4 أسابيع.</li>
-    </ul>
-    <p><strong>شامبو طبي:</strong> يحتوي على السيلينيوم أو الكيتوكونازول، يُستخدم مرتين أسبوعيًا.</p>
-    <p><strong>سعفة الأظافر:</strong></p>
-    <p><strong>أدوية فموية:</strong></p>
-    <ul>
-      <li>تيربينافين: يوميًا لمدة 3 أشهر.</li>
-      <li>إيتراكونازول: جرعة متقطعة (أسبوع علاج، 3 أسابيع راحة).</li>
-    </ul>
-    <p><strong>طلاء الأظافر:</strong> سيكلوبيروكس يُستخدم يوميًا لمدة 6-12 شهر (فعالية محدودة).</p>
-  </div>
-</div>
-<footer>
-  <div class="footer-content">
-    <p>حقوق النشر © 2023 مصطفى شاكر. جميع الحقوق محفوظة.</p>
   </div>
 
   <!-- تذييل الموقع -->
   <footer>
-    © 2023 <a href="https://www.linkedin.com/in/mostafa-felfla?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" target="_blank" rel="noopener">Mostafa Shaker.NA</a></footer>
+    © 2023 <a href="https://www.linkedin.com/in/mostafa-felfla?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" target="_blank" rel="noopener">Mostafa Shaker.NA</a>   
+  </footer>
 
   <script>
     function toggleAccordion(element) {
@@ -586,5 +610,6 @@
       }
     }
   </script>
-
-</body></html>
+  
+</body>
+</html>

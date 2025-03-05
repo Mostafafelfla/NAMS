@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الدليل التفاعلي للسعفة الجلدية    </title>
+  <title>NOUR16</title>
   <!-- استدعاء خطوط Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;family=Orbitron:wght@400;700&amp;display=swap" rel="stylesheet">
   <!-- استدعاء Font Awesome للأيقونات -->
@@ -10,10 +10,9 @@
   
   <style>
     :root {
-      --primary: #1D3557;
-      --secondary: #457B9D;
-      --accent: #0FF; /* لمسة نيون زرقاء */
-      --glass-bg: rgba(255, 255, 255, 0.1);
+      --primary: #131f2bdb;
+      --secondary: #12212b;
+      --accent: #838bb1; /* لمسة نيون زرقاء */
       --dark: #E0E0E0;
       --transition: all 0.4s ease;
     }
@@ -25,40 +24,30 @@
     }
     body {
       font-family: 'Cairo', sans-serif;
-      background: var(--primary);
+      /* تم إضافة تدرج داكن لتحسين وضوح النص */
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://i.pinimg.com/736x/ce/5f/c1/ce5fc16736d0e466f16d63b372c560f9.jpg") no-repeat center center fixed;
+      background-size: cover;
       color: var(--dark);
       line-height: 1.8;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    /* خلفية متحركة مع جسيمات نيون */
-    .animated-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      background: radial-gradient(circle at 50% 50%, rgba(0,255,255,0.1), transparent 70%);
+    /* تم تعديل خلفية البطاقات لتصبح أكثر قتامة */
+    .card {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      transform-style: preserve-3d;
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
       overflow: hidden;
     }
-    .particle {
-      position: absolute;
-      background: var(--accent);
-      border-radius: 50%;
-      opacity: 0.3;
-      animation: float 12s infinite ease-in-out;
-    }
-    .particle:nth-child(1) { width: 8px; height: 8px; top: 20%; left: 10%; animation-delay: 0s; }
-    .particle:nth-child(2) { width: 12px; height: 12px; top: 50%; left: 80%; animation-delay: 1s; }
-    .particle:nth-child(3) { width: 10px; height: 10px; top: 80%; left: 30%; animation-delay: 2s; }
-    .particle:nth-child(4) { width: 6px; height: 6px; top: 30%; left: 60%; animation-delay: 0.5s; }
-    .particle:nth-child(5) { width: 14px; height: 14px; top: 70%; left: 15%; animation-delay: 1.5s; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-20px) scale(1.2); }
-    }
-    /* ترويسة مستقبلية بتأثيرات زجاجية ولمسة نيون */
+    /* باقي التنسيقات تبقى كما هي */
     .hero-section {
       position: relative;
       background: linear-gradient(135deg, var(--secondary), var(--primary));
@@ -110,46 +99,11 @@
       animation-delay: 0.3s;
       text-shadow: 0 0 5px var(--accent);
     }
-    /* الحاوية الرئيسية */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
     }
-    /* بطاقات بتأثير زجاجي */
-    .card {
-      background: var(--glass-bg);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 2.5rem;
-      margin: 3rem 0;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-      transform-style: preserve-3d;
-      transition: var(--transition);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    .card:hover {
-      transform: translateY(-10px) rotateX(3deg) rotateY(-3deg);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transition: var(--transition);
-    }
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-    /* عناوين الأقسام */
     .section-title {
       color: var(--accent);
       padding-right: 1.5rem;
@@ -170,7 +124,6 @@
     }
     p { margin-bottom: 1rem; }
     ul { margin: 1rem 0 1rem 2rem; }
-    /* نظام الأكورديون */
     .accordion-item {
       margin: 2rem 0;
       border-radius: 15px;
@@ -211,7 +164,6 @@
       margin-top: 0.5rem;
       padding-bottom: 1.5rem;
     }
-    /* معرض الصور الشبكي */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -248,7 +200,6 @@
       background: rgba(0,0,0,0.2);
       color: var(--accent);
     }
-    /* شريط تمرير لعلاج الحالات */
     .treatment-slider {
       display: flex;
       overflow-x: auto;
@@ -270,10 +221,9 @@
     .treatment-card:hover {
       transform: translateY(-5px);
     }
-    /* تذييل الموقع */
     footer {
-      background: var(--secondary);
-      color: var(--accent);
+      background: #050e12e6;
+      color: #06995dc9;
       text-align: center;
       padding: 1.5rem 0;
       font-size: 1rem;
@@ -285,7 +235,6 @@
       text-decoration: none;
       font-weight: 600;
     }
-    /* تحسينات للجوال */
     @media (max-width: 768px) {
       .container { padding: 1rem; }
       .hero-title { font-size: 2.2rem; }
@@ -296,7 +245,8 @@
   </style>
 </head>
 <body>
-  <!-- خلفية متحركة باستخدام جسيمات النيون -->
+  <!-- تم تعليق الخلفية المتحركة -->
+  <!--
   <div class="animated-bg">
     <div class="particle"></div>
     <div class="particle"></div>
@@ -304,13 +254,14 @@
     <div class="particle"></div>
     <div class="particle"></div>
   </div>
+  -->
   
   <div class="container">
     <section class="hero-section">
-      <h1 class="hero-title">الالتهابات الفطرية الجلدية</h1>
-     
+      <h1 class="hero-title">الفطريات الجلدية</h1>
     </section>
     
+    <!-- باقي المحتوى كما هو -->
     <div class="card">
       <h2 class="section-title">ما هي الفطريات الجلدية؟</h2>
       <p>الفطريات الجلدية (Dermatophytes) هي كائنات دقيقة تتغذى على الكيراتين الموجود في الجلد، الشعر، والأظافر. تُسبب عدوى تُعرف باسم "السعفة"، وتظهر بأشكال مختلفة حسب المنطقة المصابة.</p>
@@ -323,6 +274,8 @@
         </figure>
       </div>
     </div>
+    
+    <!-- باقي الكروت والأكورديون تبقى دون تغيير -->
     
     <div class="card">
       <h2 class="section-title">كيف تنتقل العدوى؟</h2>
@@ -436,10 +389,9 @@
             <li>تفاقم الأعراض مع الرطوبة في الطقس الحار.</li>
           </ul>
           <div class="gallery-grid">
-          
             <figure class="gallery-item">
               <img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Tinea_cruris.jpg/250px-Tinea_cruris.jpg" alt="سعفة الأرفاغ 2">
-              <figcaption>سعفة الأرفاغ </figcaption>
+              <figcaption>سعفة الأرفاغ</figcaption>
             </figure>
           </div>
         </div>
@@ -569,9 +521,8 @@
   </div>
   
   <footer>
-    © 2023 <a href="https://www.linkedin.com/in/mostafa-felfla?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" target="_blank" rel="noopener">Mostafa Shaker.NA</a> | تصميم وتطوير
+    © 2023 <a href="https://www.linkedin.com/in/mostafa-felfla?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" target="_blank" rel="noopener">Mostafa Shaker.NA</a>
   </footer>
-
   
   <script>
     function toggleAccordion(el) {
